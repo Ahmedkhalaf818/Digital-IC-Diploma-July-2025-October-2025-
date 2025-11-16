@@ -24,28 +24,8 @@ it is shown in Digital-IC-Diploma-July-2025-October-2025-/tree/main/Ass2/Up_Dn_C
 # Assignment 3:
 
 This is ALU 16 bits , the code functionality cover all scenarios no there latches 
-4'b0000 => sum
-4'b0001 => subtraction
-4'b0010 => Multiplication
-4'b0011 => Division
-4'b0100 => logic And
-4'b0101 => logic or
-4'b0110 => logic nAnd
-4'b0111 => logic nor
-4'b1000 => logic xor
-4'b1001 => logic xnor
-4'b1010 => equal comparator 
-4'b1011 => greater than comparator
-4'b1100 => less than comparator 
-4'b1101 => shift right
-4'b1110 => shift left
-default: no logic just out zero
 
-there are flags to each block there are 4 blocks with 4 flags 
-Arith_flag : contain (4'b0000 , 4'b0001 , 4'b0010 , 4'b0011)
-Logic_flag : contain (4'b0100 , 4'b0101 , 4'b0110 , 4'b0111 , 4'b1000 , 4'b1001 , )
-CMP_flag   : contain (4'b1010 , 4'b1011 , 4'b1100)
-Shift_flag : contain (4'b1101 , 4'b1110)
+![function of ALU ]()
 
 it is shown in Digital-IC-Diploma-July-2025-October-2025-/tree/main/Ass3/ALU_16B.v
 
