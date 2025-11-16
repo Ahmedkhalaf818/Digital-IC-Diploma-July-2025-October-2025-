@@ -25,7 +25,11 @@ it is shown in Digital-IC-Diploma-July-2025-October-2025-/tree/main/Ass2/Up_Dn_C
 
 This is ALU 16 bits , the code functionality cover all scenarios no there latches 
 
-![function of ALU ]()
+![ALU 16-bit Function](images/ALU_16B_function.png)
+
+using drawio i draw 
+
+![ALU 16-bit diagram ](images/ALU_16B_Diagram.png)
 
 it is shown in Digital-IC-Diploma-July-2025-October-2025-/tree/main/Ass3/ALU_16B.v
 
