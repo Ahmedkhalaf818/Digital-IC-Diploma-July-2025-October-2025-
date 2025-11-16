@@ -1,0 +1,6 @@
+FSM_TX.v
+MUX4x1.v
+parity_calc.v
+SERIALIZER.v
+TOP_TX.v
+TOP_TX_TB.v
