@@ -1,0 +1,9 @@
+data_sampling_RX.v
+deserializer_RX.v
+edge_bit_counter_RX.v
+parity_check_RX.v
+stop_check_RX.v
+strt_check_RX.v
+FSM_RX.v
+RX_TOP.v
+RX_TOP_TB.v

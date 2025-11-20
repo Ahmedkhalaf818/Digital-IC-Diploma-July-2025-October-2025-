@@ -1,0 +1,201 @@
+
+                                 Formality (R)
+
+               Version L-2016.03-SP1 for linux64 - Apr 13, 2016 
+
+                    Copyright (c) 1988 - 2016 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+
+  ** Highlights of Formality (R) Version L-2016.03 **
+   - New alternate verification strategies for resolving inconclusive verifications
+   - Automation for deploying alternate strategies
+   - New command to export the mapping of reference to implementation registers
+   - New capability to combine PG and low power information from db libraries with Verilog functional models
+
+   * Please refer to the Formality Release Notes for details and additional enhancements
+
+Build: 4031317
+Hostname: IC (RHEL64)
+Current time: Thu Sep 11 23:42:41 2025
+
+Loading db file '/opt/Synopsys/Formality2016/libraries/syn/gtech.db'
+###################################################################
+########################### Variables #############################
+###################################################################
+set SSLIB "/home/IC/Assignments/Ass_Formal_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+/home/IC/Assignments/Ass_Formal_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+set TTLIB "/home/IC/Assignments/Ass_Formal_1.0/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db"
+/home/IC/Assignments/Ass_Formal_1.0/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+set FFLIB "/home/IC/Assignments/Ass_Formal_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db"
+/home/IC/Assignments/Ass_Formal_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+###################################################################
+############################ Guidance #############################
+###################################################################
+# Synopsys setup variable
+set synopses_auto_setup true
+true
+set verification_verify_directly_undriven_output false
+false
+# Formality Setup File
+set_svf "/home/IC/Assignments/Ass_Formal_1.0/syn/UART_TX.svf"
+SVF set to '/home/IC/Assignments/Ass_Formal_1.0/syn/UART_TX.svf'.
+1
+###################################################################
+###################### Reference Container ########################
+###################################################################
+# Read Reference Design Verilog Files
+read_verilog -container r "/home/IC/Assignments/Ass_Formal_1.0/rtl/TOP_TX.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Assignments/Ass_Formal_1.0/rtl/TOP_TX.v'
+Current container set to 'r'
+1
+read_verilog -container r  "/home/IC/Assignments/Ass_Formal_1.0/rtl/FSM_TX.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Assignments/Ass_Formal_1.0/rtl/FSM_TX.v'
+1
+read_verilog -container r  "/home/IC/Assignments/Ass_Formal_1.0/rtl/SERIALIZER.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Assignments/Ass_Formal_1.0/rtl/SERIALIZER.v'
+1
+read_verilog -container r  "/home/IC/Assignments/Ass_Formal_1.0/rtl/parity_calc.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Assignments/Ass_Formal_1.0/rtl/parity_calc.v'
+1
+read_verilog -container r  "/home/IC/Assignments/Ass_Formal_1.0/rtl/MUX4x1.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Assignments/Ass_Formal_1.0/rtl/MUX4x1.v'
+1
+# Read Reference technology libraries
+read_db -container r $SSLIB 
+Loading db file '/home/IC/Assignments/Ass_Formal_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+1
+# set the top Reference Design 
+#set_reference_design TOP_TX
+set_top TOP_TX
+Setting top design to 'r:/WORK/TOP_TX'
+Status:   Elaborating design TOP_TX   ...  
+Status:   Elaborating design MUX4x1   ...  
+Status:   Elaborating design parity_calc  DATA_LENGTH=4'd8 ...  
+Information: Created design named 'parity_calc_8'. (FE-LINK-13)
+Status:   Elaborating design SERIALIZER  DATA_LENGTH=4'd8 ...  
+Information: Created design named 'SERIALIZER_8'. (FE-LINK-13)
+Status:   Elaborating design FSM_TX   ...  
+Status:  Implementing inferred operators...
+
+************ Library Checking Summary ************
+Warning:  1 unlinked power cell(s) with unread pg pins.
+        Use 'report_libraries -defects all' for more details.
+**************************************************
+
+Top design successfully set to 'r:/WORK/TOP_TX'
+Reference design set to 'r:/WORK/TOP_TX'
+1
+###################################################################
+#################### Implementation Container #####################
+###################################################################
+# Read Implementation Design Files
+read_verilog -netlist -container i "/home/IC/Assignments/Ass_Formal_1.0/syn/UART_TX_netlist.v"
+No target library specified, default is WORK
+Loading verilog file '/home/IC/Assignments/Ass_Formal_1.0/syn/UART_TX_netlist.v'
+Current container set to 'i'
+1
+# Read Implementation technology libraries
+read_db -container i $SSLIB 
+Loading db file '/home/IC/Assignments/Ass_Formal_1.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+1
+# set the top Implementation Design
+#set_implementation_design UART_TX_netlist
+#set_implementation_design  TOP_TX
+set_top TOP_TX
+Setting top design to 'i:/WORK/TOP_TX'
+Status:  Implementing inferred operators...
+
+************ Library Checking Summary ************
+Warning:  1 unlinked power cell(s) with unread pg pins.
+        Use 'report_libraries -defects all' for more details.
+**************************************************
+
+Top design successfully set to 'i:/WORK/TOP_TX'
+Implementation design set to 'i:/WORK/TOP_TX'
+1
+###################### Matching Compare points ####################
+match
+Reference design is 'r:/WORK/TOP_TX'
+Implementation design is 'i:/WORK/TOP_TX'
+Status:  Checking designs...
+Status:  Building verification models...
+Status:  Processing Guide Commands...
+
+***************************** Guidance Summary *****************************
+                                         Status
+Command                 Accepted   Rejected  Unsupported  Unprocessed  Total
+----------------------------------------------------------------------------
+environment         :          2          0          0          0          2
+instance_map        :          4          0          0          0          4
+mark                :          2          0          0          0          2
+transformation
+   map              :          1          0          0          0          1
+
+SVF files read:
+      /home/IC/Assignments/Ass_Formal_1.0/syn/UART_TX.svf
+
+SVF files produced:
+  /home/IC/Assignments/Ass_Formal_1.0/fm/formality5_svf/
+    svf.txt
+****************************************************************************
+
+Status:  Matching...
+    
+*********************************** Matching Results ***********************************    
+ 28 Compare points matched by name    
+ 0 Compare points matched by signature analysis    
+ 0 Compare points matched by topology    
+ 13 Matched primary inputs, black-box outputs    
+ 0(0) Unmatched reference(implementation) compare points    
+ 0(0) Unmatched reference(implementation) primary inputs, black-box outputs    
+****************************************************************************************
+
+1
+######################### Run Verification ########################
+set successful [verify]
+Reference design is 'r:/WORK/TOP_TX'
+Implementation design is 'i:/WORK/TOP_TX'
+    
+*********************************** Matching Results ***********************************    
+ 28 Compare points matched by name    
+ 0 Compare points matched by signature analysis    
+ 0 Compare points matched by topology    
+ 13 Matched primary inputs, black-box outputs    
+ 0(0) Unmatched reference(implementation) compare points    
+ 0(0) Unmatched reference(implementation) primary inputs, black-box outputs    
+****************************************************************************************
+
+Status:  Verifying...
+
+********************************* Verification Results *********************************
+Verification SUCCEEDED
+----------------------
+ Reference design: r:/WORK/TOP_TX
+ Implementation design: i:/WORK/TOP_TX
+ 28 Passing compare points
+----------------------------------------------------------------------------------------
+Matched Compare Points     BBPin    Loop   BBNet     Cut    Port     DFF     LAT   TOTAL
+----------------------------------------------------------------------------------------
+Passing (equivalent)           0       0       0       0       2      26       0      28
+Failing (not equivalent)       0       0       0       0       0       0       0       0
+****************************************************************************************
+1
+if {!$successful} {
+diagnose
+analyze_points -failing
+}
+########################### Reporting ############################# 
+report_passing_points > "passing_points.rpt"
+report_failing_points > "failing_points.rpt"
+report_failing_points -inputs unmatched -inputs undriven > "failing_points_details.rpt"
+report_aborted_points > "aborted_points.rpt"
+report_unverified_points > "unverified_points.rpt"
+start_gui

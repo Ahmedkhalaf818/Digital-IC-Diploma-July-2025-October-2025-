@@ -1,0 +1,20 @@
+ 
+****************************************
+Report : clocks
+Design : TOP_TX
+Version: K-2015.06
+Date   : Mon Sep  8 22:12:05 2025
+****************************************
+
+Attributes:
+    d - dont_touch_network
+    f - fix_hold
+    p - propagated_clock
+    G - generated_clock
+    g - lib_generated_clock
+
+Clock          Period   Waveform            Attrs     Sources
+--------------------------------------------------------------------------------
+CLK1          8680.00   {0 4340}            d         {CLK}
+--------------------------------------------------------------------------------
+1

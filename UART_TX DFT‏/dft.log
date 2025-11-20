@@ -1,0 +1,873 @@
+                                        
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+                                        
+                 Version K-2015.06 for linux64 - May 28, 2015 
+                                        
+                    Copyright (c) 1988 - 2015 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+            or distribution of this software is strictly prohibited.
+Initializing...
+Initializing gui preferences from file  /home/IC/.synopsys_dv_prefs.tcl
+set top_module TOP_TX
+TOP_TX
+define_design_lib  work -path ./work
+1
+puts "#####################################################"
+#####################################################
+puts "################## library defenation ###############"
+################## library defenation ###############
+puts "#####################################################"
+#####################################################
+lappend search_path /home/IC/Assignments/Ass_Syn_2.0/rtl
+. /opt/Synopsys/Synplify2015/libraries/syn /opt/Synopsys/Synplify2015/minpower/syn /opt/Synopsys/Synplify2015/dw/syn_ver /opt/Synopsys/Synplify2015/dw/sim_ver /home/IC/Assignments/Ass_Syn_2.0/rtl
+lappend search_path /home/IC/Assignments/Ass_Syn_2.0/std_cells
+. /opt/Synopsys/Synplify2015/libraries/syn /opt/Synopsys/Synplify2015/minpower/syn /opt/Synopsys/Synplify2015/dw/syn_ver /opt/Synopsys/Synplify2015/dw/sim_ver /home/IC/Assignments/Ass_Syn_2.0/rtl /home/IC/Assignments/Ass_Syn_2.0/std_cells
+## Standard Cell libraries 
+set FFLIB "scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db"
+scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+set SSLIB "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db"
+scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+set TTLIB "scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db"
+scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+set target_library [list $FFLIB $SSLIB $TTLIB]
+scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+## Standard Cell & Hard Macros libraries
+set link_library [list * $FFLIB $SSLIB $TTLIB]
+* scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+##read_file and link to be synthesize 
+puts "###########################################"
+###########################################
+puts "#             Reading RTL Files           #"
+#             Reading RTL Files           #
+puts "###########################################"
+###########################################
+set file_format verilog
+verilog
+#read_file -format $file_format FSM_TX.v
+#read_file -format $file_format MUX4x1.v
+#read_file -format $file_format parity_calc.v
+#read_file -format $file_format mux2X1.v
+#read_file -format $file_format SERIALIZER.v
+#read_file -format $file_format $top_module.v
+analyze -format $file_format "FSM_TX.v MUX4x1.v mux2X1.v parity_calc.v SERIALIZER.v $top_module.v"
+Running PRESTO HDLC
+Compiling source file /home/IC/Assignments/Ass_Syn_2.0/rtl/FSM_TX.v
+Compiling source file /home/IC/Assignments/Ass_Syn_2.0/rtl/MUX4x1.v
+Compiling source file /home/IC/Assignments/Ass_Syn_2.0/rtl/mux2X1.v
+Compiling source file /home/IC/Assignments/Ass_Syn_2.0/rtl/parity_calc.v
+Compiling source file /home/IC/Assignments/Ass_Syn_2.0/rtl/SERIALIZER.v
+Compiling source file /home/IC/Assignments/Ass_Syn_2.0/rtl/TOP_TX.v
+Presto compilation completed successfully.
+Loading db file '/home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+Loading db file '/home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+1
+elaborate -lib work  $top_module
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/gtech.db'
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/standard.sldb'
+  Loading link library 'scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c'
+  Loading link library 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c'
+  Loading link library 'scmetro_tsmc_cl013g_rvt_tt_1p2v_25c'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Presto compilation completed successfully.
+Elaborated 1 design.
+Current design is now 'TOP_TX'.
+Information: Building the design 'mux2X1'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'MUX4x1'. (HDL-193)
+
+Statistics for case statements in always block at line 19 in file
+	'/home/IC/Assignments/Ass_Syn_2.0/rtl/MUX4x1.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            20            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine MUX4x1 line 11 in file
+		'/home/IC/Assignments/Ass_Syn_2.0/rtl/MUX4x1.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   TX_OUT_mux_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'parity_calc' instantiated from design 'TOP_TX' with
+	the parameters "DATA_LENGTH=4'h8". (HDL-193)
+
+Inferred memory devices in process
+	in routine parity_calc_8 line 13 in file
+		'/home/IC/Assignments/Ass_Syn_2.0/rtl/parity_calc.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    par_data_reg     | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine parity_calc_8 line 21 in file
+		'/home/IC/Assignments/Ass_Syn_2.0/rtl/parity_calc.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     par_bit_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'SERIALIZER' instantiated from design 'TOP_TX' with
+	the parameters "DATA_LENGTH=4'h8". (HDL-193)
+
+Inferred memory devices in process
+	in routine SERIALIZER_8 line 15 in file
+		'/home/IC/Assignments/Ass_Syn_2.0/rtl/SERIALIZER.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      data_reg       | Flip-flop |   8   |  Y  | N  | N  | Y  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine SERIALIZER_8 line 30 in file
+		'/home/IC/Assignments/Ass_Syn_2.0/rtl/SERIALIZER.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     counter_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Information: Building the design 'FSM_TX'. (HDL-193)
+
+Statistics for case statements in always block at line 27 in file
+	'/home/IC/Assignments/Ass_Syn_2.0/rtl/FSM_TX.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            28            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine FSM_TX line 19 in file
+		'/home/IC/Assignments/Ass_Syn_2.0/rtl/FSM_TX.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       cs_reg        | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine FSM_TX line 108 in file
+		'/home/IC/Assignments/Ass_Syn_2.0/rtl/FSM_TX.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    BUSY_FSM_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+1
+current_design $top_module
+Current design is 'TOP_TX'.
+{TOP_TX}
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## Liniking All The Design Parts ########"
+######## Liniking All The Design Parts ########
+puts "###############################################"
+###############################################
+link 
+
+  Linking design 'TOP_TX'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (6 designs)               /home/IC/Assignments/Ass_Syn_2.0/syn/TOP_TX.db, etc
+  scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c (library) /home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db
+  scmetro_tsmc_cl013g_rvt_ss_1p08v_125c (library) /home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db
+  scmetro_tsmc_cl013g_rvt_tt_1p2v_25c (library) /home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db
+
+1
+#################### Liniking All The Design Parts #########################
+puts "###############################################"
+###############################################
+puts "######## checking design consistency ##########"
+######## checking design consistency ##########
+puts "###############################################"
+###############################################
+check_design
+ 
+****************************************
+check_design summary:
+Version:     K-2015.06
+Date:        Fri Sep 12 01:04:30 2025
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      3
+    Unconnected ports (LINT-28)                                     3
+
+Cells                                                               3
+    Cells do not drive (LINT-1)                                     1
+    Connected to power or ground (LINT-32)                          2
+--------------------------------------------------------------------------------
+
+Warning: In design 'SERIALIZER_8', cell 'C105' does not drive any nets. (LINT-1)
+Warning: In design 'TOP_TX', port 'SI' is not connected to any nets. (LINT-28)
+Warning: In design 'TOP_TX', port 'SE' is not connected to any nets. (LINT-28)
+Warning: In design 'TOP_TX', port 'SO' is not connected to any nets. (LINT-28)
+Warning: In design 'TOP_TX', a pin on submodule 'mux' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'start_bit_mux' is connected to logic 0. 
+Warning: In design 'TOP_TX', a pin on submodule 'mux' is connected to logic 1 or logic 0. (LINT-32)
+   Pin 'stop_bit_mux' is connected to logic 1. 
+1
+###################### Mapping and optimization ########################
+puts "###############################################"
+###############################################
+puts "########## Mapping & Optimization #############"
+########## Mapping & Optimization #############
+puts "###############################################"
+###############################################
+source -echo ./cons.tcl
+#########################################################
+#### Section 1 : Clock Definition ####
+#########################################################
+set clock_name CLK1
+set clock_period 8680
+set CLK_SETUP_SKEW 0.025
+set CLK_HOLD_SKEW 0.01
+set CLK_LAT 0
+set CLK_transition 0.1
+create_clock -name "$clock_name" -period $clock_period -waveform [list 0 [expr $clock_period/2.0]] [get_ports CLK]
+#########################################################
+#### Section 3 : uncertainty ,skew, latency and transiton ####
+#########################################################
+set_clock_uncertainty -setup $CLK_SETUP_SKEW [get_clocks "$clock_name"]
+set_clock_uncertainty -hold  $CLK_HOLD_SKEW [get_clocks "$clock_name"]
+set_clock_latency $CLK_LAT [get_clocks "$clock_name"]
+set_clock_transition  $CLK_transition [get_clocks "$clock_name"]
+################### SCAN CLOCK #################
+set S_clock_name CLK_SCAN
+set S_clock_period 10000
+set S_CLK_SETUP_SKEW 0.025
+set S_CLK_HOLD_SKEW 0.01
+set S_CLK_LAT 0
+set S_CLK_transition 0.1
+create_clock -name "$S_clock_name" -period $clock_period -waveform [list 0 [expr $S_clock_period/2.0]] [get_ports scan_clk]
+#########################################################
+#### Section 3 : uncertainty ,skew, latency and transiton ####
+#########################################################
+set_clock_uncertainty -setup $S_CLK_SETUP_SKEW [get_clocks "$S_clock_name"]
+set_clock_uncertainty -hold  $S_CLK_HOLD_SKEW [get_clocks "$S_clock_name"]
+set_clock_latency $S_CLK_LAT [get_clocks "$S_clock_name"]
+set_clock_transition  $S_CLK_transition [get_clocks "$S_clock_name"]
+set_dont_touch_network "$S_clock_name"
+set_clock_groups -asynchronous -group [get_clocks $clock_name] -group [get_clocks $S_clock_name]
+#### Section 4 : Driving cells ####
+set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port P_DATA]
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port PAR_TYP]
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port PAR_EN]
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port DATA_VALID]
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+################scan ports#######
+set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port SI]
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+set_driving_cell -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c -lib_cell BUFX2M -pin Y [get_port SE]
+Warning: Design rule attributes from the driving cell will be
+	set on the port. (UID-401)
+set_load 0.1 [get_port TX_OUT]
+set_load 0.1 [get_port BUSY]
+set_load 0.1 [get_port SO]
+set_dont_touch_network [get_clocks "$clock_name"]
+set_dont_touch_network [get_clocks "$S_clock_name"]
+Warning: overriding result from previous dont_touch_network command on object CLK_SCAN. (UID-1329)
+####################################################################################
+#########################################################
+#### Section 3 : set input/output delay on ports ####
+#########################################################
+####################################################################################
+set in_delay  [expr 0.3*$clock_period]
+set out_delay [expr 0.3*$clock_period]
+set S_in_delay  [expr 0.3*$S_clock_period]
+set S_out_delay [expr 0.3*$S_clock_period]
+#Constrain Input Paths
+set_input_delay $in_delay -clock $clock_name [get_ports P_DATA]
+set_input_delay $in_delay -clock $clock_name [get_ports PAR_TYP]
+set_input_delay $in_delay -clock $clock_name [get_ports PAR_EN]
+set_input_delay $in_delay -clock $clock_name [get_ports DATA_VALID]
+set_input_delay $S_in_delay -clock $S_clock_name [get_ports SI]
+set_input_delay $S_in_delay -clock $S_clock_name [get_ports SE]
+#Constrain Output Paths
+set_output_delay $out_delay -clock $clock_name [get_ports TX_OUT]
+set_output_delay $out_delay -clock $clock_name [get_ports BUSY]
+set_output_delay $S_out_delay -clock $S_clock_name [get_ports SO ]
+set_case_analysis 1 [get_ports test_mode]
+#########################################################
+#### Section 7 : wireload Model ####
+#########################################################
+####################################################################################
+#set_wire_load_model -name tsmc13_wl30 -library scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+#############################################################################
+####################################################################################
+#########################################################
+#### Section 6 : Operating Condition ####
+#########################################################
+####################################################################################
+# Define the Worst Library for Max(#setup) analysis
+# Define the Best Library for Min(hold) analysis
+set_operating_conditions -min_library "scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c" -min "scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c" -max_library "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c" -max "scmetro_tsmc_cl013g_rvt_ss_1p08v_125c"
+Using operating conditions 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c' found in library 'scmetro_tsmc_cl013g_rvt_ss_1p08v_125c'.
+Using operating conditions 'scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c' found in library 'scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c'.
+1
+set_scan_configuration -clock_mixing no_mix -style multiplexed_flip_flop -replace true -max_length 100 
+Accepted scan configuration for modes: all_dft
+1
+# Write out Design after initial compile
+compile  -scan
+Information: Choosing a test methodology will restrict the optimization of sequential cells. (UIO-12)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | K-2015.06-DWBB_201506.0 |     *     |
+| Licensed DW Building Blocks        |                         |           |
+============================================================================
+
+
+Information: There are 6 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Warning: Operating condition scmetro_tsmc_cl013g_rvt_ss_1p08v_125c set on design TOP_TX has different process,
+voltage and temperatures parameters than the parameters at which target library 
+scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c is characterized. Delays may be inaccurate as a result. (OPT-998)
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'FSM_TX'
+  Processing 'SERIALIZER_8'
+  Processing 'parity_calc_8'
+  Processing 'MUX4x1'
+  Processing 'mux2X1_0'
+  Processing 'mux2X1_1'
+  Processing 'TOP_TX'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+
+  Beginning Implementation Selection
+  ----------------------------------
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02    2602.9      0.00       0.0       0.0                          
+    0:00:02    2602.9      0.00       0.0       0.0                          
+    0:00:02    2602.9      0.00       0.0       0.0                          
+    0:00:02    2602.9      0.00       0.0       0.0                          
+    0:00:02    2602.9      0.00       0.0       0.0                          
+    0:00:02    1442.6      0.00       0.0       0.0                          
+    0:00:02    1442.6      0.00       0.0       0.0                          
+    0:00:02    1442.6      0.00       0.0       0.0                          
+    0:00:02    1442.6      0.00       0.0       0.0                          
+    0:00:02    1442.6      0.00       0.0       0.0                          
+    0:00:02    1442.6      0.00       0.0       0.0                          
+    0:00:02    1442.6      0.00       0.0       0.0                          
+    0:00:02    1442.6      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02    1442.6      0.00       0.0       0.0                          
+    0:00:02    1442.6      0.00       0.0       0.0                          
+    0:00:02    1440.3      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (cleanup)
+  -----------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:02    1440.3      0.00       0.0       0.0                          
+    0:00:02    1440.3      0.00       0.0       0.0                          
+    0:00:02    1433.2      0.00       0.0       0.0                          
+    0:00:02    1433.2      0.00       0.0       0.0                          
+    0:00:02    1433.2      0.00       0.0       0.0                          
+    0:00:02    1433.2      0.00       0.0       0.0                          
+    0:00:02    1433.2      0.00       0.0       0.0                          
+    0:00:02    1433.2      0.00       0.0       0.0                          
+    0:00:02    1433.2      0.00       0.0       0.0                          
+    0:00:02    1433.2      0.00       0.0       0.0                          
+    0:00:02    1433.2      0.00       0.0       0.0                          
+    0:00:02    1433.2      0.00       0.0       0.0                          
+    0:00:02    1433.2      0.00       0.0       0.0                          
+Loading db file '/home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+Loading db file '/home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+1
+#compile -ungroup_all map_effort high
+#compile_ultra -no_auto_ungroup
+#############################################################################
+# Preclock Measure Protocol (default protocol)
+set test_default_period 100
+100
+set test_default_delay 0
+0
+set test_default_bidir_delay 0
+0
+set test_default_strobe 20
+20
+set test_default_strobe_width 0
+0
+########################## Define DFT Signals ##########################
+set_dft_signal -port [get_ports scan_clk] -type ScanClock -view existing_dft -timing {30 60}
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -port [get_ports scan_rst] -type Reset -view existing_dft -active_state 0
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -port [get_ports test_mode] -type Constant -view existing_dft -active_state 1
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -port [get_ports test_mode] -type TestMode -view spec -active_state 1
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -port [get_ports SE] -type ScanEnable -view spec -active_state 1 -usage scan
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -port [get_ports SI] -type ScanDataIn -view spec
+Accepted dft signal specification for modes: all_dft
+1
+set_dft_signal -port [get_ports SO] -type ScanDataOut -view spec
+Accepted dft signal specification for modes: all_dft
+1
+############################# Create Test Protocol #####################
+create_test_protocol
+In mode: all_dft...
+
+Information: Starting test protocol creation. (TEST-219)
+  ...reading user specified clock signals...
+Information: Identified system/test clock port scan_clk (30.0,60.0). (TEST-265)
+  ...reading user specified asynchronous signals...
+Information: Identified active low asynchronous control port scan_rst. (TEST-266)
+1
+###################### Pre-DFT Design Rule Checking ####################
+dft_drc -verbose
+In mode: all_dft...
+  Pre-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  	...checking for scan equivalents...
+  ...checking vector rules...
+  ...checking pre-dft rules...
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 0
+
+-----------------------------------------------------------------
+
+
+Test Design rule checking did not find violations
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  0 out of 26 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      *  26 cells are valid scan cells
+         mux/TX_OUT_mux_reg
+         PAR/par_data_reg[5]
+         PAR/par_data_reg[1]
+         PAR/par_data_reg[4]
+         PAR/par_data_reg[0]
+         PAR/par_data_reg[2]
+         PAR/par_bit_reg
+         PAR/par_data_reg[6]
+         PAR/par_data_reg[3]
+         PAR/par_data_reg[7]
+         SER/data_reg[6]
+         SER/data_reg[5]
+         SER/data_reg[4]
+         SER/data_reg[3]
+         SER/data_reg[2]
+         SER/data_reg[0]
+         SER/data_reg[7]
+         SER/counter_reg[3]
+         SER/counter_reg[1]
+         SER/counter_reg[2]
+         SER/counter_reg[0]
+         SER/data_reg[1]
+         FSM1/cs_reg[0]
+         FSM1/cs_reg[2]
+         FSM1/BUSY_FSM_reg
+         FSM1/cs_reg[1]
+
+Information: Test design rule checking completed. (TEST-123)
+1
+############################# Preview DFT ##############################
+preview_dft -show scan_summary
+  Information: Using test design rule information from previous dft_drc run.
+  Architecting Scan Chains
+
+****************************************
+Preview_dft report
+For    : 'Insert_dft' command
+Design : TOP_TX
+Version: K-2015.06
+Date   : Fri Sep 12 01:04:46 2025
+****************************************
+
+Number of chains: 1
+Scan methodology: full_scan
+Scan style: multiplexed_flip_flop
+Clock domain: no_mix
+
+Chain      Scan Ports (si --> so)        # of Cells   Inst/Chain               Clock (port, time, edge)
+-----      ----------------------        ----------   ----------               ------------------------
+S 1        SI -->  SO                            26   FSM1/BUSY_FSM_reg        (scan_clk, 30.0, rising) 
+1
+############################# Insert DFT ###############################
+insert_dft
+Loading db file '/home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+Loading db file '/home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+  Information: Using test design rule information from previous dft_drc run.
+  Architecting Scan Chains
+  Routing Scan Chains
+  Routing Global Signals
+  Mapping New Logic
+Resetting current test mode
+  Beginning Mapping Optimizations
+  -------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+
+
+  Beginning Phase 1 Design Rule Fixing  (max_transition)  (max_capacitance)
+  ------------------------------------
+
+                                  TOTAL                                      
+   ELAPSED            WORST NEG   SETUP    DESIGN                            
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:00:18    1434.4      0.00       0.0       0.1 mux/TX_OUT_mux           
+    0:00:18    1441.5      0.00       0.0       0.0 SE                       
+
+1
+######################## Optimize Logic post DFT #######################
+compile_ultra -scan -incremental
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Choosing a test methodology will restrict the optimization of sequential cells. (UIO-12)
+Loading db file '/opt/Synopsys/Synplify2015/libraries/syn/dw_foundation.sldb'
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | K-2015.06-DWBB_201506.0 |     *     |
+| Licensed DW Building Blocks        | K-2015.06-DWBB_201506.0 |     *     |
+============================================================================
+
+
+Information: There are 3 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Loaded alib file './alib-52/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db.alib'
+Loaded alib file './alib-52/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db.alib'
+Loaded alib file './alib-52/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db.alib'
+Warning: Operating condition scmetro_tsmc_cl013g_rvt_ss_1p08v_125c set on design TOP_TX has different process,
+voltage and temperatures parameters than the parameters at which target library 
+scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c is characterized. Delays may be inaccurate as a result. (OPT-998)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'HOLDX1M' in the library 'scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:04    1441.5      0.00       0.0       0.0                           404536.8750
+    0:00:04    1441.5      0.00       0.0       0.0                           404536.8750
+
+  Beginning Mapping Optimizations  (Ultra High effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+    0:00:04    1434.4      0.00       0.0       0.0                           403436.5312
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:04    1434.4      0.00       0.0       0.0                           403436.5312
+    0:00:04    1434.4      0.00       0.0       0.0                           403436.5312
+    0:00:05    1445.0      0.00       0.0       0.0                           388296.7812
+    0:00:05    1445.0      0.00       0.0       0.0                           388296.7812
+    0:00:05    1445.0      0.00       0.0       0.0                           388296.7812
+    0:00:05    1445.0      0.00       0.0       0.0                           388296.7812
+    0:00:05    1445.0      0.00       0.0       0.0                           388296.7812
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:05    1445.0      0.00       0.0       0.0                           388296.7812
+    0:00:05    1445.0      0.00       0.0       0.0                           388296.7812
+    0:00:05    1445.0      0.00       0.0       0.0                           388296.7812
+    0:00:05    1445.0      0.00       0.0       0.0                           388296.7812
+    0:00:05    1445.0      0.00       0.0       0.0                           388296.7812
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:05    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:06    1473.2      0.00       0.0       0.0                           383146.0938
+
+  Beginning Delay Optimization HSVT Pass
+  --------------------------------------
+    0:00:08    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:08    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:08    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:08    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:10    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:10    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:10    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:10    1473.2      0.00       0.0       0.0                           383146.0938
+    0:00:12    1466.2      0.00       0.0       0.0                           377386.5000
+    0:00:12    1466.2      0.00       0.0       0.0                           377386.5000
+Loading db file '/home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db'
+Loading db file '/home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_ss_1p08v_125c.db'
+Loading db file '/home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_tt_1p2v_25c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+1
+###################### Design Rule Checking post DFT ###################
+dft_drc -verbose -coverage_estimate
+In mode: Internal_scan...
+  Design has scan chains in this mode
+  Design is scan routed
+  Post-DFT DRC enabled
+
+Information: Starting test design rule checking. (TEST-222)
+  Loading test protocol
+  ...basic checks...
+  ...basic sequential cell checks...
+  ...checking vector rules...
+  ...checking clock rules...
+  ...checking scan chain rules...
+  ...checking scan compression rules...
+  ...checking X-state rules...
+  ...checking tristate rules...
+  ...extracting scan details...
+
+-----------------------------------------------------------------
+  DRC Report
+
+  Total violations: 0
+
+-----------------------------------------------------------------
+
+
+Test Design rule checking did not find violations
+
+-----------------------------------------------------------------
+  Sequential Cell Report
+
+  0 out of 26 sequential cells have violations
+
+-----------------------------------------------------------------
+
+SEQUENTIAL CELLS WITHOUT VIOLATIONS
+      *  26 cells are valid scan cells
+         mux/TX_OUT_mux_reg
+         PAR/par_data_reg[7]
+         PAR/par_data_reg[6]
+         PAR/par_data_reg[5]
+         PAR/par_data_reg[4]
+         PAR/par_data_reg[3]
+         PAR/par_data_reg[2]
+         PAR/par_data_reg[1]
+         PAR/par_data_reg[0]
+         PAR/par_bit_reg
+         SER/data_reg[1]
+         SER/counter_reg[3]
+         SER/counter_reg[2]
+         SER/counter_reg[1]
+         SER/counter_reg[0]
+         SER/data_reg[7]
+         SER/data_reg[6]
+         SER/data_reg[5]
+         SER/data_reg[4]
+         SER/data_reg[3]
+         SER/data_reg[2]
+         SER/data_reg[0]
+         FSM1/cs_reg[2]
+         FSM1/cs_reg[0]
+         FSM1/BUSY_FSM_reg
+         FSM1/cs_reg[1]
+
+....Inferring feed-through connections....
+Information: Test design rule checking completed. (TEST-123)
+  Running test coverage estimation...
+ 920 faults were added to fault list.
+ 0             635     49         0/0/0    93.48%      0.00
+ 0              47      2         0/0/0    98.59%      0.00
+ 0               2      0         0/0/0    98.80%      0.00
+ 
+            Pattern Summary Report
+ -----------------------------------------------
+ #internal patterns                           0
+ -----------------------------------------------
+ 
+
+     Uncollapsed Stuck Fault Summary Report
+ -----------------------------------------------
+ fault class                     code   #faults
+ ------------------------------  ----  ---------
+ Detected                         DT        909
+ Possibly detected                PT          0
+ Undetectable                     UD          0
+ ATPG untestable                  AU         11
+ Not detected                     ND          0
+ -----------------------------------------------
+ total faults                               920
+ test coverage                            98.80%
+ -----------------------------------------------
+  Information: The test coverage above may be inferior
+               than the real test coverage with customized
+               protocol and test simulation library.
+1
+write_file -format $file_format -hierarchy -output DFT_UART_TX_netlist.v
+Writing verilog file '/home/IC/Assignments/Ass_Syn_2.0/syn/DFT_UART_TX_netlist.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+1
+write_file -format ddc -hierarchy -output UART_TX.ddc
+Writing ddc file 'UART_TX.ddc'.
+1
+write_sdc  -nosplit UART_TX.sdc
+1
+write_sdf           UART_TX.sdf
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/IC/Assignments/Ass_Syn_2.0/syn/UART_TX.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+################# reporting #######################
+report_area -hierarchy > area.rpt
+report_power -hierarchy > power.rpt
+report_timing -max_paths 100 -delay_type min > hold.rpt
+report_timing -max_paths 100 -delay_type max > setup.rpt
+report_clock -attributes > clocks.rpt
+report_constraint -all_violators > constraints.rpt
+report_port > ports.rpt
+dft_drc -coverage > dft_drc_post_dft.rpt
+#exit
+exit
+
+Memory usage for main task 463 Mbytes.
+Memory usage for this session 463 Mbytes.
+CPU usage for this session 21 seconds ( 0.01 hours ).
+
+Thank you...

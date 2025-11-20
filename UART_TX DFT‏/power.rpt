@@ -1,0 +1,44 @@
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated primary inputs. (PWR-414)
+Warning: Design has unannotated sequential cell outputs. (PWR-415)
+ 
+****************************************
+Report : power
+        -hier
+        -analysis_effort low
+Design : TOP_TX
+Version: K-2015.06
+Date   : Fri Sep 12 01:05:14 2025
+****************************************
+
+
+Library(s) Used:
+
+    scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c (File: /home/IC/Assignments/Ass_Syn_2.0/std_cells/scmetro_tsmc_cl013g_rvt_ff_1p32v_m40c.db)
+
+
+Operating Conditions: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c   Library: scmetro_tsmc_cl013g_rvt_ss_1p08v_125c
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 1.08 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+--------------------------------------------------------------------------------
+                                       Switch   Int      Leak     Total
+Hierarchy                              Power    Power    Power    Power    %
+--------------------------------------------------------------------------------
+TOP_TX                                 1.78e-05 1.35e-04 3.71e+05 5.23e-04 100.0
+  FSM1 (FSM_TX_test_1)                 1.87e-06 1.96e-05 5.50e+04 7.64e-05  14.6
+  SER (SERIALIZER_8_test_1)            2.39e-06 6.18e-05 1.46e+05 2.10e-04  40.2
+  PAR (parity_calc_8_test_1)           7.47e-07 4.29e-05 1.51e+05 1.95e-04  37.2
+  mux (MUX4x1_test_1)                  3.29e-06 7.10e-06 1.33e+04 2.37e-05   4.5
+  MUX_SCAN_CLK (mux2X1_0)              8.12e-06 3.20e-06 2.39e+03 1.37e-05   2.6
+  MUX_SCAN_RST (mux2X1_1)              8.19e-07 1.70e-07 2.46e+03 3.45e-06   0.7
+1
