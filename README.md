@@ -21,7 +21,7 @@ when get load and up or down or both in same time what doing
 it is shown in Digital-IC-Diploma-July-2025-October-2025-/tree/main/Ass2/Up_Dn_Counter.
 using drawio i draw 
 
-![UP_down_counter diagram ](images/UP_Down_counter.png)
+![UP_down_counter diagram ](images/UP_Down_Counter.png)
 
 # Assignment 3:
 
