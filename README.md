@@ -11,7 +11,7 @@ As shown in the repo, there are 20 assignments. Let’s go in depth for each ass
 This is just basic training for Verilog and digital circuits. It contains sequential logic and combinational logic in always statements, and uses a modular hierarchy with each logic type in a separate always block.
 
 it is shown in Digital-IC-Diploma-July-2025-October-2025-/tree/main/Ass1/DigCt.v
-
+![DigCt diagram ](images/DigCt.png)
 # Assignment 2:
 
 this is UP_down_counter ,the code functionality cover all senarios 
