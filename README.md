@@ -136,6 +136,57 @@ This assignment is the UART Transmitter design. It converts parallel data from `
 
 ![UART TX Frame Format](images/UART_TX_Frame_Diagram.jpg)
 
+# Assignment 7:
+
+This assignment is the UART Receiver design. It accepts UART frames on `RX_IN`, oversamples the incoming serial stream, extracts the received byte, and checks parity and stop-bit validity before asserting the output data.
+
+## UART RX Interface
+- `CLK`: UART RX clock signal
+- `RST`: asynchronous active-low reset
+- `PAR_TYP`: parity type (0 = even, 1 = odd)
+- `PAR_EN`: parity enable (0 = disable, 1 = enable)
+- `Prescale`: 6-bit oversampling prescale value
+- `RX_IN`: serial input data
+- `P_DATA`: received data byte
+- `Data_valid`: high when received byte is valid
+- `Parity_Error`: high when parity mismatch is detected
+- `Stop_Error`: high when stop bit is invalid
+
+## Design Behavior
+- UART RX receives a UART frame on `RX_IN`.
+- Supports oversampling by 8, 16, or 32.
+- `RX_IN` is high while idle.
+- `Parity_Error` is asserted when the calculated parity does not match the received parity bit.
+- `Stop_Error` is asserted when the received stop bit is not `1`.
+- `P_DATA` and `Data_valid` are asserted only when the frame is received correctly (`Parity_Error = 0 && Stop_Error = 0`).
+- The receiver can accept consecutive frames without a gap.
+- All registers are cleared by asynchronous active-low reset.
+- Parity configuration:
+  - `PAR_EN = 0`: parity disabled
+  - `PAR_EN = 1`: parity enabled
+  - `PAR_TYP = 0`: even parity
+  - `PAR_TYP = 1`: odd parity
+
+## Frame Format
+- Start bit: `1'b0`
+- Data bits: 8 bits, LSB first
+- Parity bit: optional when `PAR_EN = 1`
+- Stop bit: `1'b1`
+
+## RX Clock Requirements
+- `RX_CLK` for `Prescale = 8`: `115.2 kHz * 8 = 921.6 kHz`
+- `RX_CLK` for `Prescale = 16`: `115.2 kHz * 16 = 1.8432 MHz`
+- `RX_CLK` for `Prescale = 32`: `115.2 kHz * 32 = 3.6864 MHz`
+
+## Files
+- `UART_RX/RX_TOP.v` — top-level receiver module
+- `UART_RX/RX_TOP_TB.v` — receiver testbench
+
+## Diagrams
+![UART RX Block Diagram](images/UART_RX_Block_Diagram.PNG)
+
+![UART RX Frame Format](images/UART_RX_Frame_Format.jpg)
+
 
 
 
