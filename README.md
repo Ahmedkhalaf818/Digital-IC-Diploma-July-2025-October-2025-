@@ -98,20 +98,45 @@ designed moore fsm at 50Mhz
 ![FSM diagram](images/FSM_diagram.png)
 
 # Assignment 6:
+This assignment is the UART Transmitter design. It converts parallel data from `P_DATA` into serial data on `TX_OUT`, manages frame timing, parity, and busy signaling.
 
-Specifications
+## UART TX Interface
+- `CLK`: UART TX clock signal
+- `RST`: asynchronous active-low reset
+- `PAR_TYP`: parity type (0 = even, 1 = odd)
+- `PAR_EN`: parity enable (0 = disable, 1 = enable)
+- `P_DATA`: 8-bit parallel input data
+- `DATA_VALID`: drives the transmitter to capture new data for one clock cycle
+- `TX_OUT`: serial output data
+- `BUSY`: high while transmitting a frame
+
+## Design Behavior
  UART TX receive the new data on P_DATA Bus only when Data_Valid Signal is high.
  Registers are cleared using asynchronous active low reset
  Data_Valid is high for only 1 clock cycle
  Busy signal is high as long as UART_TX is transmitting the frame, otherwise low.
  UART_TX couldn't accept any data on P_DATA during UART_TX processing, however Data_Valid get high.
  TX_OUT is high in the IDLE case (No transmission).
+- Parity configuration:
  PAR_EN (Configuration)
   0: To disable frame parity bit
   1: To enable frame parity bit
  PAR_TYP (Configuration)
   0: Even parity bit
   1: Odd parity bit
+
+## Frame Format
+- Start bit: `1'b0`
+- Data bits: 8 bits, LSB first
+- Parity bit: optional when `PAR_EN = 1`
+- Stop bit: `1'b1`
+
+## Diagrams
+![UART TX Block Diagram](images/UART_TX_Block_Diagram.PNG)
+
+![UART TX Frame Format](images/UART_TX_Frame_Diagram.jpg)
+
+
 
 
 
